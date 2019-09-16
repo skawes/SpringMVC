@@ -10,6 +10,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.Generated;
 
@@ -18,16 +19,26 @@ public class Player {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
+	@Column(unique = true)
 	private String userId;
 	private String userPassword;
 	@Column(unique = true)
-	@Email
+	@Email(message = "please enter a valid email id")
 	private String emailId;
-	@Min(value = 18)
-	@Max(value = 50)
-	@NotNull
-	private int age;
+	//@Size(min = 18,message = "you should be 18 or above to play")
+	@NotNull(message ="age is required")
+	@Min(value = 18,message ="you should be 18 or above to play")
+	private Integer age;
 	private String groupName;
+	
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getUserId() {
 		return userId;
@@ -53,11 +64,11 @@ public class Player {
 		this.emailId = emailId;
 	}
 
-	public int getAge() {
+	public Integer getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 
@@ -71,8 +82,8 @@ public class Player {
 
 	@Override
 	public String toString() {
-		return "Player [userId=" + userId + ", userPassword=" + userPassword + ", emailId=" + emailId + ", age=" + age
-				+ ", groupName=" + groupName + "]";
+		return "Player [id=" + id + ", userId=" + userId + ", userPassword=" + userPassword + ", emailId=" + emailId
+				+ ", age=" + age + ", groupName=" + groupName + "]";
 	}
 	
 
