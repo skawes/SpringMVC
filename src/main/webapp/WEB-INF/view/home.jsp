@@ -10,6 +10,7 @@
 <th><a href="/MyIPL1/home">Home</a></th>
 <th><a href="/MyIPL1/leaderboard">Leaderboard</a></th>
 <th><a href="/MyIPL1/fixtures">Fixtures</a></th>
+<th><a href="/MyIPL1/logout">logout</a></th>
 <th><a href="/MyIPL1/aboutus">About us</a></th>
 </tr>
 </table>
@@ -30,6 +31,23 @@
   <c:if test="${pred.getMatch1()==null}">
  <a href="/MyIPL1/getPrediction1?val=${predict.get(0).getTeam1()}">  <input type="button" value="${predict.get(0).getTeam1()}"> </a> Vs <a href="/MyIPL1/getPrediction1?val=${predict.get(0).getTeam2()}"><input type="button" value="${predict.get(0).getTeam2()}"></a>
 </c:if>
+</c:if>
+
+<c:if test="${listPoints!=null}">
+<table border="1" align="center">
+<tr>
+<th>userId</th>
+<th>match1</th>
+<th>match2</th>
+</tr>
+<c:forEach items="${listPoints}" var="listpoints">
+<tr>
+<td>${listpoints.getUserId()}</td>
+<td>${listpoints.getMatch1()}</td>
+<td>${listpoints.getMatch2()}</td>
+</tr>
+</c:forEach>
+
 </c:if>
    
    <%-- 

@@ -12,6 +12,7 @@
 <th><a href="/MyIPL1/home">Home</a></th>
 <th><a href="/MyIPL1/leaderboard">Leaderboard</a></th>
 <th><a href="/MyIPL1/fixtures">Fixtures</a></th>
+<th><a href="/MyIPL1/logout">logout</a></th>
 <th><a href="/MyIPL1/aboutus">About us</a></th>
 </tr>
 </table>
